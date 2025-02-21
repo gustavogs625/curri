@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Vitae - Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#1E40AF', secondary: '#9333EA' } } } };
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition duration-300">
+    <!-- Botón Modo Oscuro -->
+    <div class="fixed top-4 right-4">
+        <button id="theme-toggle" class="bg-gray-800 text-white px-4 py-2 rounded-lg">🌙</button>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-primary to-secondary text-white text-center p-6">
+        <img src="https://via.placeholder.com/150" alt="Perfil" class="rounded-full border-4 border-white shadow-lg">
+        <h1 class="text-5xl font-bold mt-4">Tu Nombre</h1>
+        <p class="text-xl mt-2">Rol Profesional | Especialidad</p>
+        <a href="#contacto" class="mt-6 bg-white text-primary px-6 py-3 rounded-lg font-bold shadow-md hover:bg-gray-200">Contáctame</a>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section class="max-w-4xl mx-auto p-6">
+        <h2 class="text-3xl font-bold text-center">Sobre Mí</h2>
+        <p class="text-center mt-4">Breve descripción sobre tu experiencia, habilidades y objetivos profesionales.</p>
+    </section>
+
+    <!-- Habilidades -->
+    <section class="max-w-4xl mx-auto p-6">
+        <h2 class="text-3xl font-bold text-center">Habilidades</h2>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mt-6 text-center">
+            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">HTML</div>
+            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">CSS</div>
+            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">JavaScript</div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="max-w-4xl mx-auto p-6 text-center">
+        <h2 class="text-3xl font-bold">Contacto</h2>
+        <form class="mt-6">
+            <input type="text" placeholder="Tu Nombre" class="w-full p-3 rounded-lg mb-4">
+            <input type="email" placeholder="Tu Email" class="w-full p-3 rounded-lg mb-4">
+            <textarea placeholder="Tu Mensaje" class="w-full p-3 rounded-lg mb-4"></textarea>
+            <button class="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-secondary">Enviar</button>
+        </form>
+    </section>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
